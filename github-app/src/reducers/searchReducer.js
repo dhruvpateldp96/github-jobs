@@ -11,7 +11,6 @@ const initialState = {
   page: 0,
   location: "",
   loading: false,
-  // movie: []
 };
 
 export default function (state = initialState, action) {
@@ -36,12 +35,6 @@ export default function (state = initialState, action) {
         jobs: action.payload,
         loading: false,
       };
-    // case FETCH_MOVIE:
-    //   return {
-    //     ...state,
-    //     movie: action.payload,
-    //     loading: false
-    //   };
     case LOADING:
       return {
         ...state,

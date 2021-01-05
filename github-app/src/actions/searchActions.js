@@ -49,19 +49,6 @@ export const fetchMoreJobs = ({ ...params }) => {
   };
 };
 
-// export const fetchMovie = (id) => {
-//   return (dispatch) => {
-//     return axios
-//     .get(`https://www.omdbapi.com/?apikey=${APIKey}&i=${id}`)
-//     .then(response =>
-//       dispatch({
-//         type: FETCH_MOVIE,
-//         payload: response.data
-//       })
-//     )
-//     .catch(err => console.log(err));
-//     };
-// };
 
 export const setLoading = () => {
   return {
