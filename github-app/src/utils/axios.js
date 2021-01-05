@@ -7,7 +7,7 @@ axios.interceptors.request.use(
     console.log("API Request: ", config);
 
     // Do something before request is sent
-
+    // config.headers = { "Access-Control-Allow-Origin": "*" };
     return config;
   },
   function (error) {

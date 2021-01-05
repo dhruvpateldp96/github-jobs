@@ -15,9 +15,13 @@ export const fetchJobs = ({ ...params }) => {
   console.log("INSIDE ACTION FETCH JOB");
   return (dispatch) => {
     return axios
-      .get(`https://jobs.github.com/positions.json`, {
-        params: { ...params },
-      })
+      .get(
+        `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json`,
+        {
+          params: { ...params },
+          headers: { "Access-Control-Allow-Origin": "*" },
+        }
+      )
       .then((response) => {
         dispatch({
           type: FETCH_JOBS,
