@@ -21,7 +21,6 @@ export default function (state = initialState, action) {
         description: action.payload.description,
         page: action.payload.page,
         location: action.payload.location,
-        loading: false,
       };
     case FETCH_MORE_JOBS:
       return {

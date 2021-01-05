@@ -7,12 +7,14 @@ import { fetchMoreJobs, setParams } from "../../actions/searchActions";
 import InfiniteScroll from "react-infinite-scroll-component";
 import NoData from "../../Icons/NoData";
 import UniText from "../../utils/UniText";
+import { CircularProgress } from "@material-ui/core";
 
 const Landing = () => {
   const jobs = useSelector((state) => state.search.jobs);
   const description = useSelector((state) => state.search.description);
   const page = useSelector((state) => state.search.page);
   const location = useSelector((state) => state.search.location);
+  const loading = useSelector((state) => state.search.loading);
 
   const dispatch = useDispatch();
   const fetchMoreData = () => {
@@ -61,6 +63,10 @@ const Landing = () => {
                 />
               ))}
             </InfiniteScroll>
+          </div>
+        ) : loading ? (
+          <div className={css(styles.noDataElement)}>
+            <CircularProgress />
           </div>
         ) : (
           <div className={css(styles.noDataElement)}>

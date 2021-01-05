@@ -3,7 +3,7 @@ import { StyleSheet, css } from "aphrodite-jss";
 import { useSelector, useDispatch } from "react-redux";
 import { Checkbox, Button } from "@material-ui/core";
 import UniText from "../../utils/UniText";
-import { fetchJobs, setParams } from "../../actions/searchActions";
+import { fetchJobs, setParams, setLoading } from "../../actions/searchActions";
 import { FaSearch } from "react-icons/fa";
 
 const SearchBar = () => {
@@ -57,6 +57,7 @@ const SearchBar = () => {
         <button
           className={css(styles.button)}
           onClick={() => {
+            dispatch(setLoading());
             dispatch(
               setParams({
                 description: titleSearch,

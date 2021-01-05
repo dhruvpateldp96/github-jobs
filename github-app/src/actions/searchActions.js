@@ -1,8 +1,6 @@
 import { FETCH_JOBS, FETCH_MORE_JOBS, SET_PARAMS, LOADING } from "./types";
 import axios from "../utils/axios";
 
-// import { APIKey } from '../../../movies-series-info/src/APIKey';
-
 export const setParams = (paramObj) => {
   return {
     type: SET_PARAMS,
@@ -36,9 +34,13 @@ export const fetchMoreJobs = ({ ...params }) => {
   console.log(params.page);
   return (dispatch) => {
     return axios
-      .get(`https://jobs.github.com/positions.json`, {
-        params: { ...params },
-      })
+      .get(
+        `https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json`,
+        {
+          params: { ...params },
+          headers: { "Access-Control-Allow-Origin": "*" },
+        }
+      )
       .then((response) => {
         dispatch({
           type: FETCH_MORE_JOBS,
@@ -48,7 +50,6 @@ export const fetchMoreJobs = ({ ...params }) => {
       .catch((err) => console.log(err));
   };
 };
-
 
 export const setLoading = () => {
   return {
